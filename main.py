@@ -167,7 +167,7 @@ def evaluate_one_batch(configs, batch, model, tokenizer, epoch):
         if len(pred_emo_final) > 3 or len(pred_cau_final) > 3:
             break
 
-    weight = 0.9
+    weight = 0.6
     pred_pair_all = weight * pred_pair + (1 - weight) * pred_pair2
 
     _, idx = torch.topk(pred_pair_all, k=k, dim=0)
